@@ -237,9 +237,9 @@ class MySQLConnector(SQLConnector):
             return cast(sqlalchemy.types.TypeEngine, mysql.JSON())
 
         if self._jsonschema_type_check(jsonschema_type, ("array",)):
-            return cast(sqlalchemy.types.TypeEngine, sqlalchemy.types.TEXT(4000))
+            return cast(sqlalchemy.types.TypeEngine, sqlalchemy.types.VARCHAR(4000))
 
-        return cast(sqlalchemy.types.TypeEngine, sqlalchemy.types.TEXT(4000))
+        return cast(sqlalchemy.types.TypeEngine, sqlalchemy.types.VARCHAR(4000))
 
     def _jsonschema_type_check(
             self, jsonschema_type: dict, type_check: tuple[str]
